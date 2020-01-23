@@ -1,4 +1,6 @@
 ﻿using System.Windows;
+using System.Windows.Controls;
+using ToDoApp.Wpf.Models;
 
 namespace ToDoApp.Wpf
 {
@@ -14,7 +16,16 @@ namespace ToDoApp.Wpf
 
         private void OnAddTodoTaskButtonClick(object sender, RoutedEventArgs e)
         {
-            TodoTaskListView.Items.Add(TodoTaskNameText.Text);
+            TodoTask item = new TodoTask();
+            item.Description = TodoTaskNameText.Text;
+            TodoTaskListView.Items.Add(item);
+        }
+
+        private void OnRemoveTodoTaskButtonClick(object sender, RoutedEventArgs e)
+        {
+            Button removeTodoTaskButton = (Button)sender;
+            TodoTask item = (TodoTask)removeTodoTaskButton.DataContext;
+            TodoTaskListView.Items.Remove(item);
         }
     }
 }

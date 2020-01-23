@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:models="clr-namespace:ToDoApp.Wpf.Models"
     Title="MainWindow"
     Width="800"
     Height="450"
@@ -31,7 +32,43 @@
             x:Name="TodoTaskListView"
             Grid.Row="1"
             Grid.Column="0"
-            Grid.ColumnSpan="2" />
+            Grid.ColumnSpan="2">
+            <ListView.ItemTemplate>
+                <DataTemplate DataType="models:TodoTask">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <TextBox
+                            x:Name="TodoTaskItemNameText"
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            Text="{Binding Description, UpdateSourceTrigger=PropertyChanged}" />
+                        <Button
+                            x:Name="RemoveTodoTaskButton"
+                            Grid.Row="0"
+                            Grid.RowSpan="2"
+                            Grid.Column="1"
+                            Click="OnRemoveTodoTaskButtonClick"
+                            Content="Remove" />
+                        <StackPanel
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            Orientation="Horizontal">
+                            <!--
+                                Add statuses
+                            -->
+                        </StackPanel>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+        </ListView>
     </Grid>
 
 </Window>
