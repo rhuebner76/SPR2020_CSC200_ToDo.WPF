@@ -11,5 +11,10 @@ namespace ToDoApp.Wpf
         {
             InitializeComponent();
         }
+
+        private void OnAddTodoTaskButtonClick(object sender, RoutedEventArgs e)
+        {
+            TodoTaskListView.Items.Add(TodoTaskNameText.Text);
+        }
     }
 }
