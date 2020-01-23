@@ -15,4 +15,8 @@ Todo Task manager should allow users to add, remove, update todo a task list.
 * Description
 * Status (Pending, Active, Complete)
 
-
+## Project Layout
+* ./Models
+* App.xaml
+* MainWindow.xaml
+* AssemblyInfo.cs
