@@ -21,11 +21,5 @@ namespace ToDoApp.Wpf
             TodoTaskListView.Items.Add(item);
         }
 
-        private void OnRemoveTodoTaskButtonClick(object sender, RoutedEventArgs e)
-        {
-            Button removeTodoTaskButton = (Button)sender;
-            TodoTask item = (TodoTask)removeTodoTaskButton.DataContext;
-            TodoTaskListView.Items.Remove(item);
-        }
     }
 }
