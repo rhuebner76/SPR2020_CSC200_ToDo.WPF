@@ -42,7 +42,7 @@
             Grid.Column="0"
             Grid.ColumnSpan="2"
             BorderBrush="DarkGray"
-            BorderThickness="1">
+            BorderThickness="1" SelectionChanged="OnTodoTaskListViewSelectionChanged">
 
             <ListView.ItemTemplate>
                 <DataTemplate DataType="models:TodoTask">
@@ -59,8 +59,7 @@
             </ListView.ItemTemplate>
         </ListView>
 
-        <!--  todo: add remove button  -->
-        <!--<Button
+        <Button
             x:Name="RemoveTodoTaskButton"
             Grid.Row="2"
             Grid.Column="0"
@@ -68,6 +67,6 @@
             Margin="2"
             Click="OnRemoveTodoTaskButtonClick"
             Content="Remove"
-            IsEnabled="False" />-->
+            IsEnabled="False" />
     </Grid>
 </Window>
