@@ -11,6 +11,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{A6D1E330-6544-4055-9EA9-9C705A0AAE94}"
 	ProjectSection(SolutionItems) = preProject
 		docs\App.md = docs\App.md
+		docs\UI.Layout.png = docs\UI.Layout.png
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoApp.Wpf", "src\ToDoApp.Wpf\ToDoApp.Wpf.csproj", "{7D2BB2CF-384E-446F-B052-B0DFE6AA8714}"
