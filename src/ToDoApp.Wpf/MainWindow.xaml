@@ -48,7 +48,9 @@
                 <DataTemplate DataType="models:TodoTask">
                     <Grid>
                         <StackPanel HorizontalAlignment="Stretch" Orientation="Horizontal">
-                            <!--  todo: add checkbox for IsCompleted property  -->
+                            <CheckBox x:Name="TodoTaskItemIsCompletedCheck"
+                                      HorizontalAlignment="Left"
+                                      IsChecked="{Binding IsCompleted, UpdateSourceTrigger=PropertyChanged}" />
                             <TextBox
                                 x:Name="TodoTaskItemNameText"
                                 HorizontalAlignment="Stretch"
