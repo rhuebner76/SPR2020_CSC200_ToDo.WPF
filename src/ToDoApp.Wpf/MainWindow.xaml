@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:models="clr-namespace:ToDoApp.Wpf.Models"
+    xmlns:viewModels="clr-namespace:ToDoApp.Wpf.ViewModels"
     Title="CSC200 Todo Task App"
     Width="800"
     Height="450"
@@ -34,7 +34,8 @@
             Grid.Row="0"
             Grid.Column="1"
             Margin="2"
-            Click="OnAddTodoTaskButtonClick"
+            Command="{Binding AddCommand}"
+            CommandParameter="{Binding ElementName=TodoTaskNameText, Path=Text}"            
             Content="Add" />
         <ListView
             x:Name="TodoTaskListView"
@@ -42,10 +43,11 @@
             Grid.Column="0"
             Grid.ColumnSpan="2"
             BorderBrush="DarkGray"
-            BorderThickness="1" SelectionChanged="OnTodoTaskListViewSelectionChanged">
+            ItemsSource="{Binding Items}"
+            BorderThickness="1" >
 
             <ListView.ItemTemplate>
-                <DataTemplate DataType="models:TodoTask">
+                <DataTemplate DataType="viewModels:TodoTaskViewModel">
                     <Grid>
                         <StackPanel HorizontalAlignment="Stretch" Orientation="Horizontal">
                             <CheckBox x:Name="TodoTaskItemIsCompletedCheck"
@@ -67,8 +69,9 @@
             Grid.Column="0"
             Grid.ColumnSpan="2"
             Margin="2"
-            Click="OnRemoveTodoTaskButtonClick"
+            Command="{Binding Path=RemoveCommand}"
+            CommandParameter="{Binding ElementName=TodoTaskListView, Path=SelectedItem}"
             Content="Remove"
-            IsEnabled="False" />
+            />
     </Grid>
 </Window>
