@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDoApp.Wpf", "src\ToDoApp.Wpf\ToDoApp.Wpf.csproj", "{64A9681E-1459-40C3-96A9-F4F1066BF3ED}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{30F23A9E-6B2B-4169-870C-BB7BCAE0039C}"
 	ProjectSection(SolutionItems) = preProject
 		README.md = README.md
@@ -15,16 +13,18 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{A6D1E330-6
 		docs\App.md = docs\App.md
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoApp.Wpf", "src\ToDoApp.Wpf\ToDoApp.Wpf.csproj", "{7D2BB2CF-384E-446F-B052-B0DFE6AA8714}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{64A9681E-1459-40C3-96A9-F4F1066BF3ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{64A9681E-1459-40C3-96A9-F4F1066BF3ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{64A9681E-1459-40C3-96A9-F4F1066BF3ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{64A9681E-1459-40C3-96A9-F4F1066BF3ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D2BB2CF-384E-446F-B052-B0DFE6AA8714}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D2BB2CF-384E-446F-B052-B0DFE6AA8714}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D2BB2CF-384E-446F-B052-B0DFE6AA8714}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D2BB2CF-384E-446F-B052-B0DFE6AA8714}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
