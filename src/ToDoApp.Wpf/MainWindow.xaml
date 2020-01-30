@@ -4,8 +4,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:models="clr-namespace:ToDoApp.Wpf.Models"
-    Title="CSC200 Todo Task App"
+    xmlns:viewModels="clr-namespace:ToDoApp.Wpf.ViewModels"
+    Title="{Binding Path=Title}"
     Width="800"
     Height="450"
     mc:Ignorable="d">
@@ -34,7 +34,8 @@
             Grid.Row="0"
             Grid.Column="1"
             Margin="2"
-            Click="OnAddTodoTaskButtonClick"
+            Command="{Binding AddTodoTaskCommand}"
+            CommandParameter="{Binding ElementName=TodoTaskNameText, Path=Text}"
             Content="Add" />
         <ListView
             x:Name="TodoTaskListView"
@@ -42,15 +43,16 @@
             Grid.Column="0"
             Grid.ColumnSpan="2"
             BorderBrush="DarkGray"
-            BorderThickness="1" SelectionChanged="OnTodoTaskListViewSelectionChanged">
+            ItemsSource="{Binding TodoTaskItems}"
+            BorderThickness="1">
 
             <ListView.ItemTemplate>
-                <DataTemplate DataType="models:TodoTask">
+                <DataTemplate DataType="viewModels:TodoTaskViewModel">
                     <Grid>
                         <StackPanel HorizontalAlignment="Stretch" Orientation="Horizontal">
                             <CheckBox x:Name="TodoTaskItemIsCompletedCheck"
-                                      HorizontalAlignment="Left"
-                                      IsChecked="{Binding IsCompleted, UpdateSourceTrigger=PropertyChanged}" />
+                                      HorizontalAlignment="Left"                                     
+                                      IsChecked="{Binding IsCompleted}" />
                             <TextBox
                                 x:Name="TodoTaskItemNameText"
                                 HorizontalAlignment="Stretch"

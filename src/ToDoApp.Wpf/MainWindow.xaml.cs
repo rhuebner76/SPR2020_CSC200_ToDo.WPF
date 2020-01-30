@@ -12,14 +12,15 @@ namespace ToDoApp.Wpf
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = new ViewModels.MainWindowViewModel();
         }
 
-        private void OnAddTodoTaskButtonClick(object sender, RoutedEventArgs e)
-        {
-            TodoTask item = new TodoTask();
-            item.Description = TodoTaskNameText.Text;
-            TodoTaskListView.Items.Add(item);
-        }
+        //private void OnAddTodoTaskButtonClick(object sender, RoutedEventArgs e)
+        //{
+        //    TodoTask item = new TodoTask();
+        //    item.Description = TodoTaskNameText.Text;
+        //    TodoTaskListView.Items.Add(item);
+        //}
 
         private void OnRemoveTodoTaskButtonClick(object sender, RoutedEventArgs e)
         {
