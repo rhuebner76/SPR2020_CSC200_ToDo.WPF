@@ -11,6 +11,7 @@
     mc:Ignorable="d">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
             <RowDefinition Height="80" />
             <RowDefinition Height="*" />
             <RowDefinition Height="40" />
@@ -19,9 +20,17 @@
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="100" />
         </Grid.ColumnDefinitions>
+        <Menu x:Name="MainMenu" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
+
+            <MenuItem x:Name="MainFileMenu" Header="_File">
+                <MenuItem x:Name="MainFileSaveMenu" Header="_Save" Command="{Binding SaveCommand}" />
+                <MenuItem x:Name="MainFileLoadMenu" Header="_Load" Command="{Binding LoadCommand}" />
+                <MenuItem x:Name="MainFileExitMenu" Header="E_xit" Command="{Binding ExitCommand}" />
+            </MenuItem>
+        </Menu>
         <TextBox
             x:Name="TodoTaskNameText"
-            Grid.Row="0"
+            Grid.Row="1"
             Grid.Column="0"
             Margin="2"
             HorizontalContentAlignment="Center"
@@ -31,7 +40,7 @@
             FontSize="18" />
         <Button
             x:Name="AddTodoTaskButton"
-            Grid.Row="0"
+            Grid.Row="1"
             Grid.Column="1"
             Margin="2"
             Command="{Binding AddTodoTaskCommand}"
@@ -39,7 +48,7 @@
             Content="Add" />
         <ListView
             x:Name="TodoTaskListView"
-            Grid.Row="1"
+            Grid.Row="2"
             Grid.Column="0"
             Grid.ColumnSpan="2"
             BorderBrush="DarkGray"
@@ -65,7 +74,7 @@
 
         <Button
             x:Name="RemoveTodoTaskButton"
-            Grid.Row="2"
+            Grid.Row="3"
             Grid.Column="0"
             Grid.ColumnSpan="2"
             Margin="2"

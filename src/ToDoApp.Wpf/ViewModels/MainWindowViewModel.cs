@@ -20,6 +20,9 @@ namespace ToDoApp.Wpf.ViewModels
             Title = "My CSC200 Todo Task";
             TodoTaskItems = new ObservableCollection<TodoTaskViewModel>();
             AddTodoTaskCommand = new DelegateCommand(AddTodoTask, CanAddTodoTask);
+            SaveCommand = new DelegateCommand(SaveTodoTaskFile);
+            LoadCommand = new DelegateCommand(LoadTodoTaskFile, DelegateCommand.Always);
+            ExitCommand = new ApplicationExitCommand();
         }
 
         public string Title { get; set; }
@@ -27,7 +30,44 @@ namespace ToDoApp.Wpf.ViewModels
         public ICollection<TodoTaskViewModel> TodoTaskItems { get; set; }
 
         public ICommand AddTodoTaskCommand { get; }
-        
+        public ICommand SaveCommand { get; }
+        public ICommand LoadCommand { get; }
+        public ICommand ExitCommand { get; }
+
+        private void SaveTodoTaskFile(object obj)
+        {
+            System.IO.FileStream file = System.IO.File.Open("mytasks.txt", System.IO.FileMode.Create, System.IO.FileAccess.ReadWrite);
+            System.IO.StreamWriter writer = new System.IO.StreamWriter(file);
+
+            foreach (var todoTaskItem in TodoTaskItems)
+            {
+                writer.WriteLine(todoTaskItem.Description);    
+            }
+
+            writer.Flush();
+            writer.Dispose();
+            file.Dispose();
+        }
+
+        private void LoadTodoTaskFile(object obj)
+        {
+            TodoTaskItems.Clear();
+ 
+            System.IO.FileStream file = System.IO.File.Open("mytasks.txt", System.IO.FileMode.OpenOrCreate, System.IO.FileAccess.ReadWrite);
+            System.IO.StreamReader reader = new System.IO.StreamReader(file);
+
+            while (reader.EndOfStream == false) 
+            {
+                TodoTask todoTask = new TodoTask();
+                todoTask.Description = reader.ReadLine();
+
+                TodoTaskItems.Add(new TodoTaskViewModel(todoTask));
+            }
+            
+            reader.Dispose();
+            file.Dispose();
+        }
+
         private void AddTodoTask(object value)
         {
             TodoTask model = new TodoTask();
